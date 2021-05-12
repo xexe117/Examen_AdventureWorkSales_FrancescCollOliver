@@ -24,7 +24,7 @@ namespace AdventureWorksSales
             }
         }
 
-        public static List<SalesOrderHeader> GetOrderHeader(int customerID)
+        public List<SalesOrderHeader> GetOrderHeader(int customerID)
         {
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
@@ -47,7 +47,7 @@ namespace AdventureWorksSales
         }
 
 
-        public static List<SalesOrderHeader> GetOrderDetails(int salesOrderId)
+        public List<SalesOrderHeader> GetOrderDetails(int salesOrderId)
         {
             using (IDbConnection connection = new SqlConnection(connectionString))
             {

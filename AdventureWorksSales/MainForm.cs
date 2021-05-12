@@ -19,7 +19,11 @@ namespace AdventureWorksSales
 
         private void salesListBox_DoubleClick(object sender, EventArgs e)
         {
+            int customerId = ((SalesOrderHeader)salesListBox.SelectedItem).SalesOrderID;
 
+            Form details = new OrderDetails(customerId);
+
+            details.Show();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -38,7 +42,19 @@ namespace AdventureWorksSales
 
         private void customersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //int customerId = ((Customer)sender).CustomerID;
+            int customerId = ((Customer)customersComboBox.SelectedItem).CustomerID;
 
+            DataAccess db = new DataAccess();
+
+            List<SalesOrderHeader> salesOrder = new List<SalesOrderHeader>();
+
+            salesOrder = db.GetOrderHeader(customerId);
+
+            foreach (SalesOrderHeader sale in salesOrder)
+            {
+                salesListBox.Items.Add(sale);
+            }
         }
     }
 }
