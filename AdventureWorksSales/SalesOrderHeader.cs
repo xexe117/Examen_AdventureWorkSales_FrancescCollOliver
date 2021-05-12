@@ -13,6 +13,12 @@ namespace AdventureWorksSales
         public decimal Freight { get; set; }
         public decimal TotalDue { get; set; }
         public string Comment { get; set; }
+        public int OrderQty { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal LineTotal { get; set; }
+
 
         public override string ToString()
         {
@@ -45,6 +51,14 @@ namespace AdventureWorksSales
             return "SalesOrderID: " + SalesOrderID + ", " + "OrderDate: " + OrderDate.ToShortDateString() + ", " + "Status:" + status + ", " +
                 "Subtotal: " + Subtotal.ToString("C2") + ", " + "TaxAmt: " + TaxAmt.ToString("C2") + ", " + "Shipping: " + Freight.ToString("C2")
                 + ", " + "Total: " + TotalDue.ToString("C2");
+        }
+
+        public string details
+        {
+            get
+            {
+                return $"Qty: {OrderQty}  Product: {ProductName}  UnitiPrice: {UnitPrice.ToString("C2")}  Line Total: { LineTotal.ToString("C2") }";
+            }
         }
     }
 }

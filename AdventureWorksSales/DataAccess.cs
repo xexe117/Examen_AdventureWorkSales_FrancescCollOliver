@@ -47,7 +47,7 @@ namespace AdventureWorksSales
         }
 
 
-        public List<SalesOrderHeader> GetOrderDetails(int salesOrderId)
+        public  List<SalesOrderHeader> GetOrderDetails(int salesOrderId)
         {
             using (IDbConnection connection = new SqlConnection(connectionString))
             {

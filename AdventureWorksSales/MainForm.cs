@@ -12,6 +12,7 @@ namespace AdventureWorksSales
 {
     public partial class MainForm : Form
     {
+        int customerId;
         public MainForm()
         {
             InitializeComponent();
@@ -19,9 +20,9 @@ namespace AdventureWorksSales
 
         private void salesListBox_DoubleClick(object sender, EventArgs e)
         {
-            int customerId = ((SalesOrderHeader)salesListBox.SelectedItem).SalesOrderID;
+            SalesOrderHeader order = ((SalesOrderHeader)salesListBox.SelectedItem);
 
-            Form details = new OrderDetails(customerId);
+            Form details = new OrderDetails(order);
 
             details.Show();
         }
@@ -43,7 +44,8 @@ namespace AdventureWorksSales
         private void customersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //int customerId = ((Customer)sender).CustomerID;
-            int customerId = ((Customer)customersComboBox.SelectedItem).CustomerID;
+            customerId = ((Customer)customersComboBox.SelectedItem).CustomerID;
+            
 
             DataAccess db = new DataAccess();
 
