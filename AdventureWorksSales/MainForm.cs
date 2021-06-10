@@ -45,7 +45,7 @@ namespace AdventureWorksSales
         {
             //int customerId = ((Customer)sender).CustomerID;
             customerId = ((Customer)customersComboBox.SelectedItem).CustomerID;
-            
+            salesListBox.Items.Clear();
 
             DataAccess db = new DataAccess();
 
